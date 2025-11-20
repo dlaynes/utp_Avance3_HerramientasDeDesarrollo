@@ -1,0 +1,42 @@
+
+name: Integración y entrega continua
+
+on:
+  push:
+    branches: [ "main" ] 
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    env:
+      nombres: "Donato Cassel"
+      apellidos: "Laynes Gonzales"
+      edad: "43"
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Primer step - Presentación
+      - name: presentación
+        run: |
+          echo "Nombres: $nombres"
+          echo "Apellidos: $apellidos"
+          echo "Edad: $edad"
+
+      # Segundo step - Datos generales
+      - name: Datos generales
+        run: echo "Carrera de ingeniería de Sistemas"
+        
+      # Tercer step - Variables secretas
+      - name: Variables de entorno secretas
+        run: |
+          echo "user: ${{secrets.USER}}"
+          echo "password: ${{secrets.PASSWORD}}"
+          
+      # Cuarto step - Variables abiertas
+      - name: Variables abiertas
+        run: |
+          echo "Versión de mi proyecto: ${{vars.PROJECT_VERSION}}"
