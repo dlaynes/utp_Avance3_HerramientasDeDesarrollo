@@ -3,7 +3,7 @@ name: Integración y entrega continua
 
 on:
   push:
-    branches: [ "master" ] 
+    branches: [ "main" ] 
 
   workflow_dispatch:
 
@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
 
       # Primer step - Presentación
-      - name: presentación
+      - name: Presentación
         run: |
           echo "Nombres: $nombres"
           echo "Apellidos: $apellidos"
@@ -28,7 +28,7 @@ jobs:
 
       # Segundo step - Datos generales
       - name: Datos generales
-        run: echo "Carrera de ingeniería de Sistemas"
+        run: echo "Carrera de Ingeniería de Sistemas"
         
       # Tercer step - Variables secretas
       - name: Variables de entorno secretas
